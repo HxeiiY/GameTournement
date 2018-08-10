@@ -1,17 +1,26 @@
+<?php
+
+// Créatin d'une session - Enregistrement de l'utilisateur - Enregistrement du Cookie
+session_start();
+
+// $_SESSION['Utilisateur'] = $Login;
+// setcookie('Login', $Login , time() + 365*24*3600, null, null, false, true);
+
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
 
     <!-- JS & CSS JQUERY -->
     <script src="../TOOLS/JQUERY/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="/TOOLS/JQUERY/jquery-ui.css">
+    <link rel="stylesheet" href="../TOOLS/JQUERY/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
     <!-- Boostrap Local -->
     <script src="/TOOLS/BOOSTRAP-4.1/bootstrap.js"></script>
-    <link rel="stylesheet" href="/TOOLS/BOOSTRAP-4.1/bootstrap.css">
+    <link rel="stylesheet" href="../TOOLS/BOOSTRAP-4.1/bootstrap.css">
 
     <!-- Boostrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -24,16 +33,16 @@
         crossorigin="anonymous"></script>
 
     <!-- Homepage CSS -->
-    <link rel="stylesheet" href="/TOOLS/CSS/Homepage.css">
+    <link rel="stylesheet" href="../TOOLS/CSS/Homepage.css">
 
     <title>GameTournement</title>
 </head>
 
 <body>
-        <h1 style="text-align:center">Bienvenue sur GameTournement</h1>
+        <h1>Bienvenue sur GameTournement</h1>
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col" id="Desc">
                 <span>GameTournement est un site communautaire ou tu peux défier les joueurs du monde entier dans des Tournois
                     ou Compétition</span>
             </div>
@@ -53,7 +62,14 @@
                         <input type="checkbox" class="form-check-input" id="RememberCheck">
                         <label class="form-check-label">Je me souviendrai de toi</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                    <?php
+                        if(isset($_GET['error']))
+                        {
+                            $errorLog = "<br><br><div id='ErrorMessage'>Je crois que tu tes trompé l'ami(e) </div>";
+                            echo($errorLog);
+                        }
+                    ?>
                 </form>
             </div>
         </div>

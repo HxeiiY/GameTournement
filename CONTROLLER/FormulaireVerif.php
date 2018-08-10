@@ -34,7 +34,7 @@ if (sizeof($resultat) > 0 && $Mdp == $resultat[0]['UT_Mdp']) {
     }
 } else {
         // Element incorrect dans le formulaire
-    header('Location: https://Google.fr');
+        header('Location: ../VIEWS/Homepage.php?error=error');
         // header('Location: ../VIEWS/Homepage.html');
 }
 
